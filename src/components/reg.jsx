@@ -168,7 +168,7 @@ const Register = () => {
   <input type="text" name="mobile" value={formData.mobile} onChange={handleChange} required />
 
   <label>Whats App No:</label>
-  <input type="text" name="mobile" value={formData.Whatsapp} onChange={handleChange} required />
+  <input type="text" name="Whatsapp" value={formData.Whatsapp} onChange={handleChange} required />
 
   <label>Email ID:</label>
   <input type="email" name="email" value={formData.email} onChange={handleChange} required />
