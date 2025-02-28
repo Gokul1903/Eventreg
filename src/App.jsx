@@ -1,7 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+
+import CardList from "./components/CardList";
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; 
 import Register from "./components/reg";
+import Footer from "./components/Footer.jsx";
+
 import Home from "./components/Home";
 function App() {
   return (
