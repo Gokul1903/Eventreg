@@ -5,7 +5,7 @@ const Card = ({ title, description, image,id }) => {
       <div className="card my-3 "  style={{ width: "100%",border:"none" ,backgroundColor :"#F4F4F4"}}>
         <img 
           className="card-img-top rounded-top-4" 
-          src={image} 
+          src={"src/assets/code the leder.png"} 
           alt="Card image cap" 
           style={{ height: "200px", objectFit: "cover" }} 
         />
