@@ -23,7 +23,7 @@ const Banner = () => {
         <>
         <section className="bg-white  ">
             <div className="container  ">
-                <img className="w-100 py-3" src="public\AGURCHAND-MANMULL-JAIN-COLLEGE.png"  />
+                <img className="w-100 py-3" src="/AGURCHAND-MANMULL-JAIN-COLLEGE.png"  />
             </div>
             <div className="row">
                 <div className="col-md-12 col-lg-12 col-sm-12">
