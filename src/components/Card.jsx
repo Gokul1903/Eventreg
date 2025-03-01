@@ -8,6 +8,7 @@ const Card = ({ title, description, image,id }) => {
           src={image} 
           alt={"image"} 
           style={{ height: "200px", objectFit: "cover" }} 
+          loading="lazy"
         />
         <div className="card-body nav-bg text-white rounded-bottom-4">
           <h5 className="card-title ">{title}</h5>

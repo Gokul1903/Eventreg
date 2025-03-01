@@ -7,7 +7,7 @@
   },
   {
     "id": 2,
-    "title": "BUG HUNT",
+    "title": "CHAIN FLOW",
     "description": "Think like a tester, debug like a pro! Find and fix hidden errors in the given code within a time limit. The one who catches the most bugs wins!",
     "image": "/bug-hunt.png"
   },
@@ -31,7 +31,7 @@
   },
   {
     "id": 6,
-    "title": "TECH O TECH",
+    "title": "TECH'O'TECH",
     "description": "Step into a world filled with cutting-edge technology! This event brings you hands-on experience with the latest gadgets, software, and AI-driven solutions. Dive deep into the tech revolution!",
     "image": "/tech-o-tech.png"
   },

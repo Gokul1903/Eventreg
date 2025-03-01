@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
-import CardList from "./components/CardList";
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; 
-import Register from "./components/reg";
+
 import Footer from "./components/Footer.jsx";
 
 import Home from "./components/Home";
+import FormRegister from "./components/FormRegister.jsx";
 function App() {
   return (
     <BrowserRouter>
@@ -16,7 +16,7 @@ function App() {
       <Routes>
         
         <Route path="/" element={<Home />} />
-        <Route path="/reg/:id" element={<Register />} />
+        <Route path="/reg/:id" element={<FormRegister/>} />
       </Routes>
       <Footer/>
     </BrowserRouter>

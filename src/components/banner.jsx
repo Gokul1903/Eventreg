@@ -22,8 +22,13 @@ const Banner = () => {
     return ( 
         <>
         <section className="bg-white  ">
-            <div className="container  ">
-                <img className="w-100 py-3" src="/AGURCHAND-MANMULL-JAIN-COLLEGE.png"  />
+            <div className="container d-flex justify-content-center">
+                <div className="row">
+                <div className="col-md-12 col-lg-12 col-sm-12">
+
+                <img className="w-100 py-3" src="/AGURCHAND-MANMULL-JAIN-COLLEGE.png" loading="lazy" />
+                </div>
+                </div>
             </div>
             <div className="row">
                 <div className="col-md-12 col-lg-12 col-sm-12">
