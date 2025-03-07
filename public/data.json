@@ -3,48 +3,56 @@
     "id": 1,
     "title": "HACK THE LADDER",
     "description": "Climb your way to the top by solving complex coding challenges. Compete against the best and prove your skills in this ultimate coding battle!",
-    "image": "/code-the-leder.png"
+    "image": "/code-the-leder.png",
+    "fileUrl":"/rulebook/hack-the-lader.pdf"
   },
   {
     "id": 2,
     "title": "CHAIN FLOW",
     "description": "Connect the links and keep the flow going! Solve sequential challenges and outsmart the competition to emerge victorious!",
-    "image": "/bug-hunt.png"
+    "image": "/bug-hunt.png",
+    "fileUrl":"/rulebook/chain-flow.pdf"
   },
   {
     "id": 3,
     "title": "NETWORKING",
     "description": "Show off your networking knowledge! Solve real-world networking problems, design secure architectures, and prove you're the networking expert!",
-    "image": "/networking.png"
+    "image": "/networking.png",
+    "fileUrl":"/rulebook/networking.pdf"
   },
   {
     "id": 4,
     "title": "CODECRAZE",
     "description": "A thrilling coding competition where logic meets creativity. Solve algorithmic puzzles, optimize your code, and challenge your limits!",
-    "image": "/codecraze.png"
+    "image": "/codecraze.png",
+    "fileUrl":"/rulebook/code-craze.pdf"
   },
   {
     "id": 5,
     "title": "TECH BLAST",
     "description": "A rapid-fire quiz that tests your knowledge of emerging technologies, groundbreaking innovations, and futuristic trends. Stay sharp and get ready to blast through a series of challenging tech questions!",
-    "image": "/tech-blast.png"
+    "image": "/tech-blast.png",
+    "fileUrl":"/rulebook/tech-blast.pdf"
   },
   {
     "id": 6,
     "title": "TECH'O'TECH",
     "description": "Step into a world filled with cutting-edge technology! This event brings you hands-on experience with the latest gadgets, software, and AI-driven solutions. Dive deep into the tech revolution!",
-    "image": "/tech-o-tech.png"
+    "image": "/tech-o-tech.png",
+    "fileUrl":"/rulebook/tech-o-tech.pdf"
   },
   {
     "id": 7,
     "title": "PICK THE BID",
     "description": "A thrilling auction-style event where participants bid on tech-related products, innovations, and concepts. Use your analytical skills and strategy to make the smartest bids and win big!",
-    "image": "/pick-the-bid.png"
+    "image": "/pick-the-bid.png",
+    "fileUrl":"/rulebook/pic-the-bid.pdf"
   },
   {
     "id": 8,
     "title": "TECH DEBATE",
     "description": "A high-intensity debate where participants tackle the most pressing tech-related controversies. AI ethics, cybersecurity, blockchain – get ready to voice your opinions and challenge the competition!",
-    "image": "/debate.png"
+    "image": "/debate.png",
+    "fileUrl":"/rulebook/tech-debate.pdf"
   }
 ]

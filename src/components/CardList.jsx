@@ -26,7 +26,7 @@ const CardList = () => {
             </div>
             {offStageEvents.map((card) => (
               <div className="col-md-3" key={card.id}>
-                <Card title={card.title} description={card.description} image={card.image} id={card.id} />
+                <Card title={card.title} description={card.description} image={card.image} id={card.id} fileUrl={card.fileUrl}/>
               </div>
             ))}
           </div>
@@ -42,7 +42,7 @@ const CardList = () => {
             </div>
             {onStageEvents.map((card) => (
               <div className="col-md-3" key={card.id}>
-                <Card title={card.title} description={card.description} image={card.image} id={card.id} />
+                <Card title={card.title} description={card.description} image={card.image} id={card.id} fileUrl={card.fileUrl} />
               </div>
             ))}
           </div>
