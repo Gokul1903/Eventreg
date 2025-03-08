@@ -165,10 +165,10 @@ const Register = () => {
   <input type="text" name="teamname" value={formData.teamname} onChange={handleChange} required />
 
   <label>Mobile No:</label>
-  <input type="text" name="mobile" value={formData.mobile} onChange={handleChange} required />
+  <input type="number" name="mobile" value={formData.mobile} onChange={handleChange} required />
 
   <label>Whats App No:</label>
-  <input type="text" name="Whatsapp" value={formData.Whatsapp} onChange={handleChange} required />
+  <input type="number" name="Whatsapp" value={formData.Whatsapp} onChange={handleChange} required />
 
   <label>Email ID:</label>
   <input type="email" name="email" value={formData.email} onChange={handleChange} required />
