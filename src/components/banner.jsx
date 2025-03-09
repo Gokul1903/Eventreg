@@ -26,7 +26,7 @@ const Banner = () => {
                 <div className="row">
                 <div className="col-md-12 col-lg-12 col-sm-12">
 
-                <img className="w-100 py-3" src="/AGURCHAND-MANMULL-JAIN-COLLEGE.png" loading="lazy" />
+                <img className="w-100 py-3" src="\AGURCHAND MANMULL JAIN COLLEGE.png" loading="lazy" />
                 </div>
                 </div>
             </div>
