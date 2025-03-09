@@ -1,29 +1,26 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ReCAPTCHA from "react-google-recaptcha"; // Import reCAPTCHA
 
 const Register = () => {
-  const { id } = useParams(); // Extracting the ID from the URL
-  const [data, setData] = useState(null); // Initially set to null instead of undefined
-  const [loading, setLoading] = useState(true); // Loading state to ensure data is fetched before rendering
+  const { id } = useParams(); 
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [recaptchaValue, setRecaptchaValue] = useState(null); // Store reCAPTCHA response
 
   useEffect(() => {
-    fetch("/data.json") // Replace with your actual JSON file path
+    fetch("/data.json") 
       .then((response) => response.json())
       .then((json) => {
         const item = json.find((entry) => entry.id.toString() === id);
         if (item) {
           setData(item.title);
-          
         } else {
           console.log("Item not found!");
         }
       })
       .catch((error) => console.error("Error fetching data:", error))
-      .finally(() => {
-        
-          setLoading(false); 
-        
-      }); // Stop loading once fetching is done
+      .finally(() => setLoading(false));
   }, [id]);
 
   const [formData, setFormData] = useState({
@@ -33,10 +30,10 @@ const Register = () => {
     mobile: "",
     college: "",
     department: "",
-    gender:"",
-    teamname:"",
-    yearOfStudy:"",
-    Whatsapp:""
+    gender: "",
+    teamname: "",
+    yearOfStudy: "",
+    Whatsapp: "",
   });
 
   const GOOGLE_FORM_ACTION_URL =
@@ -50,10 +47,10 @@ const Register = () => {
     college: "entry.1728510713",
     department: "entry.1524423665",
     event: "entry.17750743",
-    gender:"entry.978264053",
-    teamname:"entry.1111133993",
-    yearOfStudy:"entry.334496450",
-    Whatsapp:"entry.1859094734"
+    gender: "entry.978264053",
+    teamname: "entry.1111133993",
+    yearOfStudy: "entry.334496450",
+    Whatsapp: "entry.1859094734",
   };
 
   const handleChange = (e) => {
@@ -68,7 +65,11 @@ const Register = () => {
       return;
     }
 
-    
+    if (!recaptchaValue) {
+      alert("Please verify the reCAPTCHA before submitting.");
+      return;
+    }
+
     const formDataToSend = new URLSearchParams();
     formDataToSend.append(ENTRY_IDS.name, formData.name);
     formDataToSend.append(ENTRY_IDS.dob, formData.dob);
@@ -99,18 +100,16 @@ const Register = () => {
           mobile: "",
           college: "",
           department: "",
-          gender:"",
-          teamname:"",
-          yearOfStudy:"",
-          Whatsapp:""
+          gender: "",
+          teamname: "",
+          yearOfStudy: "",
+          Whatsapp: "",
         });
+        setRecaptchaValue(null); // Reset reCAPTCHA after submission
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+      .catch((error) => console.error("Error:", error));
   };
 
-  // Show loading state until data is fetched
   if (loading) {
     return (
       <div className="d-flex justify-content-center align-items-center vh-100">
@@ -126,59 +125,65 @@ const Register = () => {
 
   return (
     <>
-    <div className="title container py-3 d-flex justify-content-center">
-    <strong>{data}</strong></div>
-    <form onSubmit={handleSubmit} className="container form-container col-lg-12 col-md-12 col-sm-12">
-  <label>Name:</label>
-  <input type="text" name="name" value={formData.name} onChange={handleChange} required />
-  
-  <label>Date of Birth:</label>
-  <input type="date" name="dob" value={formData.dob} onChange={handleChange} required />
+      <div className="title container py-3 d-flex justify-content-center">
+        <strong>{data}</strong>
+      </div>
+      <form onSubmit={handleSubmit} className="container form-container col-lg-12 col-md-12 col-sm-12">
+        <label>Name:</label>
+        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
 
-  <label>Gender:</label>
-  <select name="gender" className="rounded-2 " value={formData.gender} onChange={handleChange} required>
-    <option value="">Select Gender</option>
-    <option value="Male">Male</option>
-    <option value="Female">Female</option>
-    <option value="Other">Other</option>
-  </select>
+        <label>Date of Birth:</label>
+        <input type="date" name="dob" value={formData.dob} onChange={handleChange} required />
 
-  <label>College Name:</label>
-  <input type="text" name="college" value={formData.college} onChange={handleChange} required />
+        <label>Gender:</label>
+        <select name="gender" className="rounded-2" value={formData.gender} onChange={handleChange} required>
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
 
-  <label>Department:</label>
-  <input type="text" name="department" value={formData.department} onChange={handleChange} required />
+        <label>College Name:</label>
+        <input type="text" name="college" value={formData.college} onChange={handleChange} required />
 
+        <label>Department:</label>
+        <input type="text" name="department" value={formData.department} onChange={handleChange} required />
 
-  <label>Year of Study:</label>
-  <select name="yearOfStudy"className="rounded-2 " value={formData.yearOfStudy} onChange={handleChange} required>
-    <option value="">Select Year</option>
-    <option value="1st Year">1st Year</option>
-    <option value="2nd Year">2nd Year</option>
-    <option value="3rd Year">3rd Year</option>
-    <option value="4th Year">4th Year</option>
-  </select>
+        <label>Year of Study:</label>
+        <select name="yearOfStudy" className="rounded-2" value={formData.yearOfStudy} onChange={handleChange} required>
+          <option value="">Select Year</option>
+          <option value="1st Year">1st Year</option>
+          <option value="2nd Year">2nd Year</option>
+          <option value="3rd Year">3rd Year</option>
+          <option value="4th Year">4th Year</option>
+        </select>
 
-  
-  
-  <label>Team Name:</label>
-  <input type="text" name="teamname" value={formData.teamname} onChange={handleChange} required />
+        <label>Team Name:</label>
+        <input type="text" name="teamname" value={formData.teamname} onChange={handleChange} required />
 
-  <label>Mobile No:</label>
-  <input type="text" name="mobile" value={formData.mobile} onChange={handleChange} required />
+        <label>Mobile No:</label>
+        <input type="text" name="mobile" value={formData.mobile} onChange={handleChange} required />
 
-  <label>Whats App No:</label>
-  <input type="text" name="Whatsapp" value={formData.Whatsapp} onChange={handleChange} required />
+        <label>WhatsApp No:</label>
+        <input type="text" name="Whatsapp" value={formData.Whatsapp} onChange={handleChange} required />
 
-  <label>Email ID:</label>
-  <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+        <label>Email ID:</label>
+        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
 
-  <button className="rounded" type="submit">Submit</button>
-</form>
+        {/* Google reCAPTCHA Component */}
+        <div className="d-flex justify-content-center my-3">
+          <ReCAPTCHA
+            sitekey="6Lf8xu4qAAAAADxhQX6qL_ld8kpn2uTrvatiW181" // Replace with your actual site key
+            onChange={(value) => setRecaptchaValue(value)}
+          />
+        </div>
 
-</>
+        <button className="rounded" type="submit">
+          Submit
+        </button>
+      </form>
+    </>
   );
-
 };
 
 export default Register;
