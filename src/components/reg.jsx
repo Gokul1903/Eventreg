@@ -8,6 +8,7 @@ const Register = () => {
   const [time, setTime] = useState(null);
   const [loading, setLoading] = useState(true);
   const [events, setEvents] = useState([]);
+  const [selectedEvents, setSelectedEvents] = useState([]);
   const [recaptchaValue, setRecaptchaValue] = useState(null); // Store reCAPTCHA response
 
 
@@ -22,11 +23,13 @@ const Register = () => {
         } else {
           console.log("Item not found!");
         }
+        setEvents(json.map(event => ({ id: event.id, title: event.title ,time : event.time})));
       })
       .catch((error) => console.error("Error fetching data:", error))
       .finally(() => setLoading(false));
   }, [id]);
 
+  
   
 
   const [formData, setFormData] = useState({
@@ -40,8 +43,9 @@ const Register = () => {
     teamname: "",
     yearOfStudy: "",
     Whatsapp: "",
+    
   });
-
+  
   const GOOGLE_FORM_ACTION_URL =
     "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeYaXIeefrswAkydtJOGErUjQmqv1IlgtLWlnxw9jE25Ai4IA/formResponse";
 
@@ -57,8 +61,15 @@ const Register = () => {
     teamname: "entry.1111133993",
     yearOfStudy: "entry.334496450",
     Whatsapp: "entry.1859094734",
+    
   };
-
+  const handleCheckboxChange = (eventId) => {
+    setSelectedEvents((prevSelected) =>
+      prevSelected.includes(eventId)
+        ? prevSelected.filter((id) => id !== eventId)
+        : [...prevSelected, eventId]
+    );
+  };
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -88,7 +99,7 @@ const Register = () => {
     formDataToSend.append(ENTRY_IDS.teamname, formData.teamname);
     formDataToSend.append(ENTRY_IDS.yearOfStudy, formData.yearOfStudy);
     formDataToSend.append(ENTRY_IDS.Whatsapp, formData.Whatsapp);
-
+    formDataToSend.append("entry.123456789", selectedEvents.join(", "));
     fetch(GOOGLE_FORM_ACTION_URL, {
       method: "POST",
       mode: "no-cors",
@@ -110,7 +121,9 @@ const Register = () => {
           teamname: "",
           yearOfStudy: "",
           Whatsapp: "",
+          
         });
+        setSelectedEvents([]);
         setRecaptchaValue(null); // Reset reCAPTCHA after submission
       })
       .catch((error) => console.error("Error:", error));
@@ -137,7 +150,7 @@ const Register = () => {
         
       </div>
       <div className="title container py-2 d-flex justify-content-center"><strong>Time : {time}</strong></div>
-      <form onSubmit={handleSubmit} className="container form-container col-lg-12 col-md-12 col-sm-12">
+      <form onSubmit={handleSubmit} className="container form-container col-lg-12 col-md-12 col-sm-12 ">
         <label>Name:</label>
         <input type="text" name="name" value={formData.name} onChange={handleChange} required />
 
@@ -180,7 +193,30 @@ const Register = () => {
 
         <label>Email ID:</label>
         <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-      
+        <div className="d-flex justify-content-center ">
+        <h5 className="py-4">Additional Events:</h5>
+        </div>
+        
+        {events.map((event) => (
+          event.title !== data && (
+            <div className="container d-flex justify-content-between w-75 py-2">
+            <label key={event.id} style={{display:"contents"}}>
+              {event.title } <br /> {event.time}
+              
+              <input
+                style={{width:"20%"}}
+                type="checkbox"
+                checked={selectedEvents.includes(event.title)}
+                onChange={() => handleCheckboxChange(event.title)}
+              />
+            </label>
+            
+              </div>
+          )
+        ))}
+        
+
+
         {/* Google reCAPTCHA Component */}
         <div className="d-flex justify-content-center my-3">
           <ReCAPTCHA
@@ -189,9 +225,11 @@ const Register = () => {
           />
         </div>
 
-        <button className="rounded" type="submit">
+        <div className="d-flex justify-content-center">
+        <button className="rounded w-100" type="submit">
           Submit
         </button>
+        </div>
       </form>
     </>
   );
