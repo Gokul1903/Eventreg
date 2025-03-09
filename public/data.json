@@ -4,55 +4,63 @@
     "title": "HACK THE LADDER",
     "description": "Climb the coding ladder by solving progressively harder problems. Master different programming concepts and race to the top in this thrilling challenge!",
     "image": "/code-the-leder.png",
-    "fileUrl":"/rulebook/hack-the-lader.pdf"
+    "fileUrl":"/rulebook/hack-the-lader.pdf",
+    "time":"10:00 - 12:30"
   },
   {
     "id": 2,
     "title": "CHAIN FLOW",
     "description": "Solve, debug, and optimize interconnected code sets! Fix errors, ensure smooth execution, and race against time to achieve the correct final output!",
     "image": "/bug-hunt.png",
-    "fileUrl":"/rulebook/chain-flow.pdf"
+    "fileUrl":"/rulebook/chain-flow.pdf",
+    "time":"01:00 - 03:00"
   },
   {
     "id": 3,
     "title": "NETWORKING",
     "description": "Troubleshoot network issues using CMD and online tools. Solve connectivity problems for a specific application and advance through this hands-on tech challenge!",
     "image": "/networking.png",
-    "fileUrl":"/rulebook/networking.pdf"
+    "fileUrl":"/rulebook/networking.pdf",
+    "time":"10:00 - 11:00"
   },
   {
     "id": 4,
     "title": "CODECRAZE",
     "description": "Show off your coding skills in this competitive challenge! Solve tricky algorithmic problems in Java or Python, focusing on accuracy, efficiency, and logic!",
     "image": "/codecraze.png",
-    "fileUrl":"/rulebook/code-craze.pdf"
+    "fileUrl":"/rulebook/code-craze.pdf",
+    "time":"01:00 - 03:00"
   },
   {
     "id": 5,
     "title": "TECH BLAST",
     "description": "Decode technical terms through visual clues! Compete in Picture Connection, Rapid Fire, and Missing Link to test quick thinking, knowledge, and teamwork!",
     "image": "/tech-blast.png",
-    "fileUrl":"/rulebook/tech-blast.pdf"
+    "fileUrl":"/rulebook/tech-blast.pdf",
+    "time":"11:15 - 12:30"
   },
   {
     "id": 6,
     "title": "TECH'O'TECH",
     "description": "An interactive, fun-packed event with three exciting rounds: Word Hunt, Guess Me, and Algorithm Pictionary. Pair up and take on this ultimate tech challenge!",
     "image": "/tech-o-tech.png",
-    "fileUrl":"/rulebook/tech-o-tech.pdf"
+    "fileUrl":"/rulebook/tech-o-tech.pdf",
+    "time":"10:00 - 11:00"
   },
   {
     "id": 7,
     "title": "PICK THE BID",
     "description": "A fast-paced coding quiz where teams bid for questions! Answer quickly and accurately—whoever scores the most wins this thrilling test of programming knowledge!",
     "image": "/pick-the-bid.png",
-    "fileUrl":"/rulebook/pic-the-bid.pdf"
+    "fileUrl":"/rulebook/pic-the-bid.pdf",
+    "time":"02:00 - 03:00"
   },
   {
     "id": 8,
     "title": "TECH DEBATE",
     "description": "Engage in fierce debates on the hottest tech topics! From AI ethics to cybersecurity, challenge opponents, defend your stance, and prove your expertise!",
     "image": "/debate.png",
-    "fileUrl":"/rulebook/tech-debate.pdf"
+    "fileUrl":"/rulebook/tech-debate.pdf",
+    "time":"01:00 - 02:00"
   }
 ]

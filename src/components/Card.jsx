@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Card = ({ title, description, image,id ,fileUrl}) => {
+const Card = ({ title, description, image,id ,fileUrl,time}) => {
     return (
       <div className="card my-3 "  style={{ width: "100%",border:"none" ,backgroundColor :"#F4F4F4"}}>
         <img 
@@ -11,7 +11,9 @@ const Card = ({ title, description, image,id ,fileUrl}) => {
           loading="lazy"
         />
         <div className="card-body nav-bg text-white rounded-bottom-4">
-          <h5 className="card-title ">{title}</h5>
+        
+          <h5 className="card-title ">{title} </h5>
+          <h5 className="card-title ">Time : {time}</h5>
           <p className="card-text">{description}</p>
           <div className="d-flex justify-content-between">
           <Link to={`/reg/${id}`} className="btn btn-primary">Register</Link>

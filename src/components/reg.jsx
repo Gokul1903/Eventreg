@@ -5,8 +5,11 @@ import ReCAPTCHA from "react-google-recaptcha"; // Import reCAPTCHA
 const Register = () => {
   const { id } = useParams(); 
   const [data, setData] = useState(null);
+  const [time, setTime] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [events, setEvents] = useState([]);
   const [recaptchaValue, setRecaptchaValue] = useState(null); // Store reCAPTCHA response
+
 
   useEffect(() => {
     fetch("/data.json") 
@@ -15,6 +18,7 @@ const Register = () => {
         const item = json.find((entry) => entry.id.toString() === id);
         if (item) {
           setData(item.title);
+          setTime(item.time);
         } else {
           console.log("Item not found!");
         }
@@ -22,6 +26,8 @@ const Register = () => {
       .catch((error) => console.error("Error fetching data:", error))
       .finally(() => setLoading(false));
   }, [id]);
+
+  
 
   const [formData, setFormData] = useState({
     name: "",
@@ -126,8 +132,11 @@ const Register = () => {
   return (
     <>
       <div className="title container py-3 d-flex justify-content-center">
-        <strong>{data}</strong>
+        <strong>{data} </strong>
+        
+        
       </div>
+      <div className="title container py-2 d-flex justify-content-center"><strong>Time : {time}</strong></div>
       <form onSubmit={handleSubmit} className="container form-container col-lg-12 col-md-12 col-sm-12">
         <label>Name:</label>
         <input type="text" name="name" value={formData.name} onChange={handleChange} required />
@@ -171,7 +180,7 @@ const Register = () => {
 
         <label>Email ID:</label>
         <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-
+      
         {/* Google reCAPTCHA Component */}
         <div className="d-flex justify-content-center my-3">
           <ReCAPTCHA
