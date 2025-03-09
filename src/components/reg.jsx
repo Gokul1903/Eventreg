@@ -61,6 +61,7 @@ const Register = () => {
     teamname: "entry.1111133993",
     yearOfStudy: "entry.334496450",
     Whatsapp: "entry.1859094734",
+    Additional:"entry.1139906897"
     
   };
   const handleCheckboxChange = (eventId) => {
@@ -99,7 +100,7 @@ const Register = () => {
     formDataToSend.append(ENTRY_IDS.teamname, formData.teamname);
     formDataToSend.append(ENTRY_IDS.yearOfStudy, formData.yearOfStudy);
     formDataToSend.append(ENTRY_IDS.Whatsapp, formData.Whatsapp);
-    formDataToSend.append("entry.123456789", selectedEvents.join(", "));
+    formDataToSend.append(ENTRY_IDS.Additional, selectedEvents.join(", "));
     fetch(GOOGLE_FORM_ACTION_URL, {
       method: "POST",
       mode: "no-cors",
