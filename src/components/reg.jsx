@@ -82,7 +82,11 @@ const Register = () => {
       alert("Event data is not available yet. Please wait...");
       return;
     }
-
+    if (document.getElementById("bot_field").value !== "") {
+      alert("Spam detected! Submission blocked.");
+      return;
+  }
+  
     if (!recaptchaValue) {
       alert("Please verify the reCAPTCHA before submitting.");
       return;
@@ -191,7 +195,7 @@ const Register = () => {
         <label>WhatsApp No:</label>
         <input type="number" name="Whatsapp" value={formData.Whatsapp} onChange={handleChange} required />
 
-
+        
         <label>Email ID:</label>
         <input type="email" name="email" value={formData.email} onChange={handleChange} required />
         <div className="d-flex justify-content-center ">
@@ -225,6 +229,7 @@ const Register = () => {
             onChange={(value) => setRecaptchaValue(value)}
           />
         </div>
+        <input type="text" name="bot_field" id="bot_field" style={{display:"none"}}/>
 
         <div className="d-flex justify-content-center">
         <button className="rounded w-100" type="submit">
